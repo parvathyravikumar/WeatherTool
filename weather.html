@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Weather Tool</title>
+<!-- External Style sheets -->
+<link rel="stylesheet" href="css/weatherStyle.css">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<!-- External Script files -->
+<script type="text/javascript" src="scripts/jquery-1.12.2.min.js"></script>
+<script type="text/javascript" src="scripts/bootstrap.min.js"></script>
+<script type="text/javascript" src="scripts/angular.min.js"></script>
+<!-- angular-sanitize.minjs is used for inserting HTML tags from script file to view page -->
+<script type="text/javascript" src="scripts/angular-sanitize.min.js"></script>
+<script type="text/javascript" src="scripts/script.js"></script>
+
+</head>
+<body>
+<!-- Main Container -->
+<div class="container-fluid" ng-app="weatherApp" ng-controller="weatherController">
+<!-- Container to show weather details of Eindhoven -->
+	<div class="container">
+		<div class="row">
+		<!-- Div to show weather details -->
+			<div class="col-sm-3 mainDetailedWeather">
+				<h1 id="cityNameMain" ng-bind="cityNameMain">{{cityNameMain }}</h1>
+				<div id="weatherMain">
+					<div id="weatherIconMain" class="weatherIcon" ng-bind-html = "weatherIconMain"></div>
+					<span id="temperatureMain" class="temperature" ng-bind-html = "temperatureMain">{{ temperature }} </span>
+				</div>
+				<div class="clear"></div>
+				<h2 id="weatherTypeMain" class="weatherType" ng-bind="weatherTypeMain">{{ weatherType }}</h2>
+				<label>Sun Rise : </label><span id="sunriseMain" ng-bind="sunriseMain">{{sunriseMain}}</span>
+				<div class="clear"></div>
+				<label>Sun set : </label><span id="sunsetMain" ng-bind = "sunsetMain">{{sunsetMain}}</span>
+				<div class="clear"></div>
+				<span class="viewmore" ng-click = "mainViewMore()">View More..</span>
+			</div>
+			<!-- Div to show sea level chart -->
+			<div class="col-sm-5" ng-show = "mainChartHeader">
+				<label class="mainSeaLevelStyle">Atmospheric pressure on the sea level
+			    at 9:00 in hectopascal</label>
+			    <canvas id="mainCanvas" height="250" width="480"></canvas>
+			</div>
+			<!-- Div to show the rotating earth -->
+			<div class="col-sm-4">
+				<div id="centerEarth"></div>
+			</div>
+		</div>
+	</div>
+<!-- Container to show the 5 cites -->
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-1"></div>
+			<div class="col-sm-2">
+				<div class="hovereffect" id="2">
+				    <img src="images/amsterdam.jpg"
+					class="img-rounded btn-style" alt="Amsterdam">
+					<div class="overlay">
+						<h2>Amsterdam</h2>
+						<span class="info" ng-click = "showWeather('Amsterdam')">Show weather</span>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-2">
+				<div class="hovereffect" id="3">
+					<img src="images/london.jpg"
+						class="img-rounded btn-style" alt="London">
+					<div class="overlay">
+						<h2>London</h2>
+						<span class="info" ng-click = "showWeather('London')">Show weather</span>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-2">
+				<div class="hovereffect" id="4">
+					<img src="images/barcelona.jpg"
+						class="img-rounded btn-style" alt="Barcelona">
+					<div class="overlay">
+						<h2>Barcelona</h2>
+						<span class="info" ng-click = "showWeather('Barcelona')">Show weather</span>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-2">
+				<div class="hovereffect" id="5">
+					<img src="images/paris.jpg"
+						class="img-rounded btn-style" alt="Paris">
+					<div class="overlay">
+						<h2>Paris</h2>
+						<span class="info" ng-click = "showWeather('Paris')">Show weather</span>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-2">
+				<div class="hovereffect" id="6">
+					<img src="images/prague.jpg"
+						class="img-rounded btn-style" alt="Prague">
+					<div class="overlay">
+						<h2>Prague</h2>
+						<span class="info" ng-click = "showWeather('Prague')">Show weather</span>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-1"></div>
+		</div>
+	</div>
+	<!-- Container to view the sea level chart -->
+	<div class="container-fluid" ng-show="boxes">
+		<div class="row weatherCanvas">
+			<div class="col-sm-4 detailedWeather">
+				<h1 id="cityName" ng-bind="cityName">{{cityName}}</h1>
+				<div id="weather">
+					<div id="weatherIcon" class="weatherIcon" ng-bind-html = "weatherIcon">{{weatherIcon}}</div>
+					<span id="temperature" class="temperature" ng-bind-html ="temperature">{{temperature_small}}</span>
+				</div>
+				<div class="clear"></div>
+				<h3 id="weatherType" class="weatherType" ng-bind="weatherType">{{weatherType}}</h3>
+				<label>Sun Rise : </label><span id="sunrise" ng-bind="sunrise">{{sunrise}}</span>
+				<div class="clear"></div>
+				<label>Sun set : </label><span id="sunset" ng-bind="sunset">{{sunset}}</span>
+				<div class="clear"></div>
+				<span class="viewmore" ng-click="viewMore(cityName)">View More..</span>
+				
+			</div>
+			<div class="col-sm-6 detailedWeather" id= "chartHeader" >
+				<label class="seaLevelStyle">Atmospheric pressure on
+				the sea level at 9:00 in hectopascal</label>
+				<canvas id="canvas" height="250" width="480"></canvas>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>

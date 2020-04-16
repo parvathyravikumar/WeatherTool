@@ -1,0 +1,217 @@
+body{
+  background: url("../images/mainBackground.png") 0 0 no-repeat;
+  background-size:cover;
+  width:100%;
+  height:100%;
+}
+.clear{
+	clear:both;
+}
+.mainDetailedWeather{
+	margin: 4em auto;
+    color:white;
+}
+.detailedWeather{
+	margin: 3em auto;
+    left: 31px;
+    color: white;
+}	
+.iconStyle{
+  	height:100%;
+  	width:100%;
+}
+.weatherIcon{
+ 	width:34%;
+ 	float:left;
+}
+.temperature{
+	font-size:32px;
+	float:left;
+	width:50%;
+	line-height:100px;
+}
+.weatherType{
+	text-transform:capitalize;
+}
+#centerEarth {
+	  position: relative;
+	  width: 300px;
+	  height: 300px;
+	  margin: 4em auto;
+	  background: url("../images/earthmap.jpg") 0 0 repeat;
+	  background-size: 630px;
+	  color: #000;
+	  border-radius: 50%;
+	  animation: rotate 10s linear infinite;
+	  transition: transform 200ms linear;
+	  transform-style: preserve-3d;
+	  box-shadow: inset 20px 0 80px 6px rgba(0, 0, 0, 1);
+}
+#centerEarth:before {
+	  content: "";
+	  position: absolute;
+	  border-radius: 50%;
+	  width: 100%;
+	  height: 100%;
+	  top: 0;
+	  left: 0;
+	  opacity: 0.2;
+	  background: radial-gradient(circle at 100px 100px, #fff, #000);
+}
+@keyframes rotate {
+	  0% {background-position: 0 0;}
+	  100% {background-position: 630px 0;}
+}
+.weatherCanvas{
+		color:#fff;
+		border:1px solid #5d5d5d;
+		border-radius:4px;
+		background:url("../images/mainBackground.png") 0 0 no-repeat;
+		background-size:cover;
+	    margin: 4em auto;
+	    margin-left: 11% !important;
+	    margin-right: 10% !important;
+}
+.viewmore{
+		color:#337ab7;
+		font-style: italic;
+}
+.viewmore:hover{
+		cursor:pointer;
+		color:#5d5d5d;
+}
+.mainSeaLevelStyle{
+	    margin-top: 15%;
+	    font-size: 20px;
+	    text-align: center;
+	    color: #fff;
+	    font-weight: normal;
+}
+.seaLevelStyle{
+	    margin-top: 4%;
+	    font-size: 20px;
+	    text-align: center;
+	    color: #fff;
+	    font-weight: normal;
+}
+.btn-style {
+	  border: 3px solid #fff;
+	  cursor: pointer;
+	  height: 160px;
+	  width: 160px;
+	  opacity:0.7;
+}
+.hovereffect {
+	  width: 100%;
+	  height: 100%;
+	  float: left;
+	  overflow: hidden;
+	  position: relative;
+	  text-align: center;
+	  cursor: default;
+}
+.hovereffect:hover{
+	  border: 3px solid #fff;
+}
+.hovereffect .overlay {
+	width: 100%;
+	  height: 100%;
+	  position: absolute;
+	  overflow: hidden;
+	  top: 0;
+	  left: 0;
+	  -webkit-transition: all 0.4s ease-in-out;
+	  transition: all 0.4s ease-in-out;
+}
+
+
+.hovereffect:hover img {
+	  -webkit-transform: scale(3);
+	  -ms-transform: scale(3);
+	  transform: scale(3);
+	  -webkit-transition: all 0.4s ease-in-out;
+	  transition: all 0.4s ease-in-out;
+}
+.hovereffect img {
+	  display: block;
+	  position: relative;
+}
+.hovereffect h2 {
+	  text-transform: uppercase;
+	  color: #fff;
+	  font-weight:bold;
+	  text-align: center;
+	  position: relative;
+	  font-size: 19px;
+	  padding: 10px;
+	  -webkit-transform: translateY(45px);
+	  -ms-transform: translateY(45px);
+	  transform: translateY(45px);
+	  -webkit-transition: all 0.4s ease-in-out;
+	  transition: all 0.4s ease-in-out;
+}
+.hovereffect:hover h2 {
+	  -webkit-transform: translateY(5px);
+	  -ms-transform: translateY(5px);
+	  transform: translateY(5px);
+}
+.hovereffect span.info {
+	  display: inline-block;
+	  text-decoration: none;
+	  color: #111;
+	  background-color: transparent;
+	  opacity: 0;
+	  filter: alpha(opacity=0);
+	  -webkit-transform: scale(0);
+	  -ms-transform: scale(0);
+	  transform: scale(0);
+	  -webkit-transition: all 0.4s ease-in-out;
+	  transition: all 0.4s ease-in-out;
+	  font-weight: bold;
+}
+.hovereffect:hover span.info {
+	  opacity: 1;
+	  color:#fff;
+	  font-style: italic;
+	  filter: alpha(opacity=100);
+	  -webkit-transform: scale(1);
+	  -ms-transform: scale(1);
+	  transform: scale(1);
+}
+.hovereffect span.info:hover {
+	  cursor:pointer;
+	  color:#d5d5d5;
+	  -webkit-transform: scale(1.2);
+	  -ms-transform: scale(1.2);
+	  transform: scale(1.2)
+}
+/*Responsive design*/
+@media screen and (max-width: 900px) {
+
+.hovereffect:hover img {
+	  -webkit-transform: none;
+	  -ms-transform: none;
+	  transform: none;
+	  width:100%;
+}
+.hovereffect:hover h2 {
+	  -webkit-transform: none;
+	  -ms-transform: none;
+	  transform:none;
+	  width: 100%;
+	 
+}
+	.hovereffect h2 {
+	  width: 40%;
+	  }
+	.hovereffect:hover .overlay{
+	   width: 100%;
+}
+.seaLevelStyle{	
+    font-size: 15px;
+    text-align: left;
+}
+	.detailedWeather {
+	left:0px;
+	}
+}
